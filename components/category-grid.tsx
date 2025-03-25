@@ -58,10 +58,10 @@ export default function CategoryGrid() {
         >
           <div className="relative h-32 w-full overflow-hidden">
             <Image
-              src={category.image || "/placeholder.svg"}
+              src={category.image || "/images/asly-logo.png"}
               alt={category.name}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-cover transition-all duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/30 transition-opacity group-hover:bg-black/20"></div>
           </div>

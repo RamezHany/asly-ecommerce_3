@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Star, ShoppingCart, Truck, Shield, RotateCcw } from "lucide-react"
 import ProductCarousel from "@/components/product-carousel"
-import useToast from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast"
 import type { Product } from "@/lib/types"
 
 interface ProductDetailProps {
@@ -55,7 +55,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         <div className="lg:col-span-1">
           <div className="mb-4 overflow-hidden rounded-lg border">
             <Image
-              src={product.images[selectedImage] || "/placeholder.svg"}
+              src={product.images[selectedImage] || "/images/asly-logo.png"}
               alt={product.name}
               width={600}
               height={600}
@@ -72,7 +72,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 }`}
               >
                 <Image
-                  src={image || "/placeholder.svg"}
+                  src={image || "/images/asly-logo.png"}
                   alt={`${product.name} thumbnail ${index + 1}`}
                   width={80}
                   height={80}

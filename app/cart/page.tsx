@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useCart } from "@/context/cart-context"
 import { Button } from "@/components/ui/button"
 import { Trash2, ShoppingBag, ArrowRight } from "lucide-react"
-import useToast from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast"
 
 export default function CartPage() {
   const { cart, updateQuantity, removeFromCart, clearCart } = useCart()
@@ -75,7 +75,7 @@ export default function CartPage() {
                   <div className="col-span-3 flex items-center gap-4">
                     <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border">
                       <Image
-                        src={item.product.images[0] || "/placeholder.svg"}
+                        src={item.product.images[0] || "/images/asly-logo.png"}
                         alt={item.product.name}
                         width={80}
                         height={80}

@@ -7,7 +7,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/context/cart-context"
 import { ShoppingCart, Star } from "lucide-react"
-import useToast from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast"
 import type { Product } from "@/lib/types"
 import { Badge } from "@/components/ui/badge"
 
@@ -51,7 +51,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <Link href={`/products/${product.id}`} className="block">
         <div className="relative aspect-square overflow-hidden">
           <Image
-            src={product.images[0] || "/placeholder.svg"}
+            src={product.images[0] || "/images/asly-logo.png"}
             alt={product.name}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
