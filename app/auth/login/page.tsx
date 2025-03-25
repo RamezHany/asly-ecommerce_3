@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
-import { useToast } from "@/components/ui/use-toast"
+import useToast from "@/components/ui/use-toast"
 import { Eye, EyeOff, Mail, Lock } from "lucide-react"
 import Image from "next/image"
 
@@ -59,7 +59,7 @@ export default function LoginPage() {
           <div className="flex h-full flex-col items-center justify-center p-8 text-white">
             <div className="mb-8">
               <Image
-                src="/images/asly-logo.png"
+                src="/placeholder.svg?height=80&width=160"
                 alt="Asly Logo"
                 width={160}
                 height={80}
@@ -80,16 +80,9 @@ export default function LoginPage() {
         </div>
 
         <div className="p-8">
-          <div className="flex flex-col items-center space-y-4">
-            <Image
-              src="/images/asly-logo.png"
-              alt="Asly Logo"
-              width={160}
-              height={80}
-              className="h-16 w-auto"
-            />
-            <h1 className="text-2xl font-bold">Sign in to your account</h1>
-            <p className="text-muted-foreground">Enter your credentials below to sign in</p>
+          <div className="mb-6 text-center md:text-left">
+            <h1 className="text-2xl font-bold">Sign In</h1>
+            <p className="text-muted-foreground">Enter your credentials to access your account</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
