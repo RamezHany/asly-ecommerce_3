@@ -7,7 +7,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/context/cart-context"
 import { ShoppingCart, Star } from "lucide-react"
-import { useToast } from "@/components/ui/use-toast"
+import useToast from "@/components/ui/use-toast"
 import type { Product } from "@/lib/types"
 import { Badge } from "@/components/ui/badge"
 
@@ -86,7 +86,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <span className="ml-2 text-xs text-muted-foreground">({product.reviewCount})</span>
           </div>
           <div className="mb-4 flex items-center">
-            {product.onSale ? (
+            {product.onSale && product.salePrice ? (
               <>
                 <span className="text-lg font-bold text-green-600">${product.salePrice.toFixed(2)}</span>
                 <span className="ml-2 text-sm text-muted-foreground line-through">${product.price.toFixed(2)}</span>

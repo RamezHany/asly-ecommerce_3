@@ -10,6 +10,9 @@ import { AuthProvider } from "@/context/auth-context"
 
 const inter = Inter({ subsets: ["latin"] })
 
+// Force dynamic rendering for all pages
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: "Asly Electrical Supplies",
   description: "Your trusted source for quality electrical supplies",

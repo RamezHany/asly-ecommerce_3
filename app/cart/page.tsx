@@ -4,14 +4,18 @@ import Link from "next/link"
 import { useCart } from "@/context/cart-context"
 import { Button } from "@/components/ui/button"
 import { Trash2, ShoppingBag, ArrowRight } from "lucide-react"
-import { useToast } from "@/components/ui/use-toast"
+import useToast from "@/components/ui/use-toast"
 
 export default function CartPage() {
   const { cart, updateQuantity, removeFromCart, clearCart } = useCart()
   const { toast } = useToast()
 
   const subtotal = cart.reduce(
-    (total, item) => total + (item.product.onSale ? item.product.salePrice : item.product.price) * item.quantity,
+    (total, item) => {
+      if (!item.product) return total;
+      const itemPrice = item.product.onSale && item.product.salePrice ? item.product.salePrice : item.product.price;
+      return total + itemPrice * item.quantity;
+    },
     0,
   )
 
@@ -62,8 +66,9 @@ export default function CartPage() {
             </div>
 
             {cart.map((item) => {
-              const price = item.product.onSale ? item.product.salePrice : item.product.price
-              const itemTotal = price * item.quantity
+              if (!item.product) return null;
+              const price = item.product.onSale && item.product.salePrice ? item.product.salePrice : item.product.price;
+              const itemTotal = price * item.quantity;
 
               return (
                 <div key={item.product.id} className="grid grid-cols-1 border-b p-4 sm:grid-cols-6 sm:items-center">
@@ -95,7 +100,7 @@ export default function CartPage() {
                   </div>
 
                   <div className="col-span-1 mt-4 text-center sm:mt-0">
-                    {item.product.onSale ? (
+                    {item.product.onSale && item.product.salePrice ? (
                       <div>
                         <span className="font-medium">${item.product.salePrice.toFixed(2)}</span>
                         <span className="ml-2 text-sm text-muted-foreground line-through">
